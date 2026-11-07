@@ -1,0 +1,17 @@
+- job:
+    name: e2e-caldav-hono
+    parent: e2e-smoke
+    voting: false
+    timeout: 1200
+    vars:
+      e2e_scenario_commands:
+        - npm ci
+        - npm run verify:e2e
+- project:
+    check:
+      jobs:
+        - repo-check:
+            vars:
+              repo_check_commands:
+                - npm run typecheck
+        - e2e-caldav-hono
