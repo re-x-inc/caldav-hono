@@ -20,7 +20,17 @@ npm run migrate   # one-shot file store -> SQLite import (idempotent, cross-chec
 npm run offer-queries  # Part C offer searches as SQL (--driver/--start/--end/--now)
 npm run verify-admin   # admin plane: provisioning, OIDC subject map, disable/delete (self-contained)
 npm run verify-offer-dedupe  # one resource per offer UID + inbox policy (self-contained)
+npm run verify:e2e  # all of the above in one go against an isolated throwaway server (CI entry)
 ```
+
+One command for CI (Zuul check/gate shape): `npm run verify:e2e` builds
+once (`tsc`, which is also the type check), seeds and starts an isolated
+server (temp dir, free 127.0.0.1 port, SQLite; never the running
+instance), runs every suite above from `dist/` in order, prints a
+per-suite PASS/FAIL table and exits 1 if any suite fails. Needs only
+`npm ci` beforehand; no network access at run time. `CALDAV_E2E_KEEP=1`
+keeps the temp dir on failure, `CALDAV_E2E_SUITE_TIMEOUT_MS` caps each
+suite (default 600000), `CALDAV_E2E_ONLY=a,b` runs a subset.
 
 Node 22.13+ (`engines.node`): the SQLite store uses the built-in
 `node:sqlite`.
