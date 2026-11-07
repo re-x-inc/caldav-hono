@@ -10,5 +10,8 @@
 - project:
     check:
       jobs:
-        - repo-check
+        - repo-check:
+            vars:
+              repo_check_commands:
+                - npm run typecheck
         - e2e-caldav-hono
