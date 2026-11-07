@@ -1,0 +1,7 @@
+node_modules/
+dist/
+data/
+config/accounts.local.json
+config/oidc.local.json
+*.log
+config/admin.local.json

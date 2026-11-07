@@ -1,0 +1,8 @@
+{
+  "comment": "Copy to accounts.local.json (gitignored, chmod 600) or run `npm run seed` which generates it with random passwords. Passwords are stored in plain text in this local file (file store; the SQLite store keeps scrypt hashes). username is the stable ID; displayName is presentation only.",
+  "accounts": [
+    { "username": "ops-001", "password": "CHANGE-ME", "email": "ops-001@example.test", "displayName": "Operator" },
+    { "username": "emp-001", "password": "CHANGE-ME", "email": "emp-001@example.test", "displayName": "Employee" },
+    { "username": "drv-001", "password": "CHANGE-ME", "email": "drv-001@example.test", "displayName": "Driver" }
+  ]
+}

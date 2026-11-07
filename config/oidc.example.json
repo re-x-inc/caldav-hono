@@ -1,0 +1,14 @@
+{
+  "comment": "Copy to oidc.local.json (gitignored, chmod 600). issuer/audience/jwksUrl may instead come from CALDAV_OIDC_ISSUER / CALDAV_OIDC_AUDIENCE / CALDAV_OIDC_JWKS_URL (env wins). subjects maps an IdP token subject (sub) to a local account username (stable ID). Subjects with no entry fail authentication. For Logto, issuer is the tenant endpoint ending in /oidc and jwksUrl is <issuer>/jwks. adminClaim/adminValue (optional): a verified token whose claim adminClaim equals or contains adminValue may use the admin plane (/admin/*).",
+  "issuer": "https://example.logto.app/oidc",
+  "audience": "caldav-hono",
+  "jwksUrl": "https://example.logto.app/oidc/jwks",
+  "scope": "caldav",
+  "subjects": {
+    "REPLACE-WITH-IDP-SUBJECT-OPS": "ops-001",
+    "REPLACE-WITH-IDP-SUBJECT-EMP": "emp-001",
+    "REPLACE-WITH-IDP-SUBJECT-DRV": "drv-001"
+  },
+  "adminClaim": "roles",
+  "adminValue": "caldav-admin"
+}

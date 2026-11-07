@@ -1,0 +1,4 @@
+{
+  "comment": "Copy to admin.local.json (gitignored, chmod 600) or set CALDAV_ADMIN_TOKEN. The token guards /admin/* (Authorization: Bearer <token>) and is never a CalDAV credential. Leave both unset to keep the admin plane closed (503).",
+  "token": "CHANGE-ME-long-random-string"
+}

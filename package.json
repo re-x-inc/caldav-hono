@@ -1,0 +1,35 @@
+{
+  "name": "caldav-hono",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "description": "Lightweight CalDAV server on Hono (clean-room, RFC 4791/5545/6578 subset)",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/src/index.js",
+    "seed": "tsc && node dist/scripts/seed.js",
+    "verify": "tsc && node dist/scripts/verify.js",
+    "offer": "tsc && node dist/scripts/offer-flow.js",
+    "verify-oidc": "tsc && node dist/scripts/verify-oidc.js",
+    "verify-recurrence": "tsc && node dist/scripts/verify-recurrence.js",
+    "verify-scheduling": "tsc && node dist/scripts/verify-scheduling.js",
+    "verify-admin": "tsc && node dist/scripts/verify-admin.js",
+    "verify-offer-dedupe": "tsc && node dist/scripts/verify-offer-dedupe.js",
+    "migrate": "tsc && node dist/scripts/migrate-to-sqlite.js",
+    "offer-queries": "tsc && node dist/scripts/offer-queries.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.6",
+    "hono": "^4.13.16",
+    "jose": "^6.2.15",
+    "rrule": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}
