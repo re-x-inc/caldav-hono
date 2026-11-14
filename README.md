@@ -191,7 +191,8 @@ local test issuer.
   VTIMEZONE definitions are passed through on output but not used
   for conversion (unknown TZID -> diagnostic + wall time as UTC).
   Floating times are compared as UTC. Expansion is computed per
-  request on the read path (no projection table yet) with scan caps
+  request on the read path (the occurrences projection is maintained on
+  write but not yet used by queries) with scan caps
   (100k rule iterations / 10k occurrences per resource, diagnosed
   when hit); open-ended queries without an end expand ~10 years out.
   A THISANDFUTURE that restarts or cancels the series makes later
